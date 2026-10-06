@@ -1,6 +1,6 @@
 
 export {createTask, deleteTask, listTasks, completeTask, tasks};
-import type {Task} from "./types.ts";
+import type {Task} from "./types.js";
 
 const tasks: Task[] = []; 
 
@@ -15,7 +15,12 @@ const task: Task = {
 }; 
 
 function createTask(title:string): Task {
-    const id = tasks.length + 1 
+    let largestid = 0 
+    for (const task of tasks){
+        if (task.id > largestid){
+        largestid = task.id 
+    }}
+    const id = largestid + 1 
     const newTask: Task = {
         id: id, 
         title: title,
@@ -27,21 +32,10 @@ function createTask(title:string): Task {
 
 }
 
-// function listTasks(): void {
-//     for (const task of tasks)
-//         if (task.completed) {
-//             console.log (task.id + " [x] " + task.title)
-//         }
-//                 else {
-//                     console.log (task.id + " [ ] " + task.title)
-//                 }
-
-
-// }
 
 function listTasks(): void {
     for (const task of tasks) {
-         const status = task.completed ? " [x] " : "[ ]";
+         const status = task.completed ? " [x] " : " [ ] ";
     console.log(task.id + status + task.title)
 
 

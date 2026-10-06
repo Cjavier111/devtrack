@@ -1,20 +1,19 @@
 import type { Task } from "./types.js";
 import {createTask, deleteTask, listTasks, completeTask, tasks} from "./tasks.js";
 
-createTask("Learn TypeScript");
-createTask("Build DevTrack");
-createTask("Practice Git");
+createTask("Task A");
+createTask("Task B");
+createTask("Task C");
 
-listTasks();
-
-completeTask(1);
-
-console.log("\nAfter completing task:\n");
-
+console.log("Starting:");
 listTasks();
 
 deleteTask(2);
 
-console.log("\nAfter deleting task:\n");
+console.log("\nAfter deleting ID 2:");
+listTasks();
 
+createTask("Task D");
+
+console.log("\nAfter creating another task:");
 listTasks();
